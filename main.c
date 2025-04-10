@@ -3,8 +3,9 @@
 #include <string.h>
 #include <time.h>
 #include "ticket.h"
-#include "lista.h"
-
+#include "list.h"
+#include "nodo.h"
+#include "list.c"
 Nodo *alta = NULL, *media = NULL, *baja = NULL;
 
 int generar_hora() {
@@ -90,13 +91,13 @@ void buscar_ticket_id() {
 int main() {
     int opcion;
     do {
-        printf("\n--- Sistema de Soporte Técnico ---\n");
-        printf("1. Registrar ticket\n");
-        printf("2. Asignar prioridad\n");
-        printf("3. Mostrar tickets\n");
-        printf("4. Procesar siguiente ticket\n");
-        printf("5. Buscar ticket por ID\n");
-        printf("0. Salir\n");
+        
+        printf("1 Registrar ticket\n");
+        printf("2 Asignar prioridad\n");
+        printf("3 Mostrar tickets\n");
+        printf("4 Procesar siguiente ticket\n");
+        printf("5 Buscar ticket por ID\n");
+        printf("0 terminar programa\n");
         printf("Seleccione una opción: ");
         scanf("%d", &opcion);
 
@@ -106,8 +107,8 @@ int main() {
             case 3: mostrar_tickets(); break;
             case 4: procesar_siguiente(); break;
             case 5: buscar_ticket_id(); break;
-            case 0: printf("Saliendo...\n"); break;
-            default: printf("Opción no válida.\n");
+            case 0: printf("FIN\n"); break;
+            default: printf("error usar opcion valida\n");
         }
     } while (opcion != 0);
     return 0;
